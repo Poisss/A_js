@@ -1,0 +1,10 @@
+.po{
+    width: 500px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid black;
+}
+label{
+    margin-right: 5px;
+
+}

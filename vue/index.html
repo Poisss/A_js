@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script defer src="assets/js/vue.global.js"></script>
+        <script defer src="assets/js/js.js"></script>
+        <script src="assets/js/order.js"></script>
+        <script src="assets/js/user.js"></script>
+    </head>
+    <body>
+        <style>
+            hr{
+                margin: 20px 0px;
+            }
+        </style>
+        <div id="app">
+            <p>Имя: {{ name }}</p>
+            <p>Выражение: {{ x }} + {{ y }} = {{ x + y }}</p>
+            <input type="text" v-model="x"/>+
+            <input type="text" v-model="y">={{ ~~x + ~~y}}
+            <p>Условие: {{ x > 25 ? `в ${x} - Вам пора работать :)`:`в ${x} - Вам нужно учиться!!!`}}</p>
+            <p>Метод: {{ sum() }}</p>
+            <p>Функция: {{ name.split('').reverse().join(' ')}}</p>
+            <p>Группа: {{ grua}}</p>
+            <p>Разработчик: {{ name1( name , last_name , O_name ) }}</p>
+            <p>Сегодня: {{ data_today() }}</p>
+            <p>Завтра: {{ data_tomorrow() }}</p>
+            <p>Массив: {{sum_arr(arr)}}</p>
+            <hr>
+            <a :href="url" :title="url">Загрузить Google</a>
+            <hr>
+            <img :src="src" :alt="alt" :title="title1" height="300">
+            <hr>
+            <h2>Счетчик 1 = {{counter1}}</h2>
+            <button @click="addCount">Увеличить</button>
+            <hr>
+            <h2 @mouseenter="mouseEnter">Счетчик 2 = {{counter2}}</h2>
+            <button @click="counter2++">Увеличить</button>
+            <hr>
+            <h2>{{title}}={{counter}}</h2>
+            <button @click="addCounter(2,'Изменено на 2',$event)">Увеличить на 2</button>
+            <button @click="addCounter(5,'Изменено на 5',$event)">Увеличить на 5</button>
+            <hr>
+            <input type="text" @keyup.enter.spase="showAlert(login)" v-model="login">
+            <hr>
+            <button @click="showDate()">Показать время</button>
+            <hr>
+            <button @mouseenter="showDate()">Показать время</button>
+            <hr>
+            <input type="text" v-model="text"><br>
+            <button @click="addText1">Кнопка 1</button>
+            <button @click="addText2">Кнопка 2</button>
+            <hr>
+            Цена:{{cost}}<br>
+            Количество:{{amount}}<br>
+            Итого:{{cost*amount}}<br>
+            <button @click="addCost">Повысить цену на 1</button>
+            <button @click="addAmount">Добавить на 1</button>
+            <hr>
+            id: {{order[0]}}<br>
+            title: {{order[1]}}<br>
+            firm: {{order[2]}}<br>
+            color: {{order[3]}}<br>
+            country: {{order[4]}}<br>
+            availability: {{order[5]}}<br>
+            size: {{order[6]}}<br>
+            price: {{order[7]}}<br>
+            img: <br><img :src="order[8]" ><br>
+            <hr>
+            Random img: <br><img height="400" :src="dynamicIMG[Math.floor(Math.random()*3)]">
+            <hr>
+            <h1>Пользователь</h1>
+            
+            <h1>Товар</h1>
+
+            <h1>Оплата</h1>
+
+        </div>
+    </body>
+</html>
