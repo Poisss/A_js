@@ -26,8 +26,8 @@ let app =Vue.createApp({
         }
     },
     beforeCreate(){
-        order=orders;
-        user=user;
+        order=JSON.parse(orders);
+        user=JSON.parse(user);
     },
     created(){
         this.order=order;
