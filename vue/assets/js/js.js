@@ -32,6 +32,7 @@ let app =Vue.createApp({
     created(){
         this.order=order;
         this.user=user;
+
     },
    methods:{
         sum(x,y){
@@ -97,6 +98,19 @@ let app =Vue.createApp({
         addAmount(){
             this.amount++
             
+        },
+        userOrder(x){
+            str='';    
+            for(i=0;i<x.length;i++){
+                str+=x[i]+'; ';
+            }
+            return str
+        },
+        productIf(x){   
+            for(i=0;i<x.length;i++){
+               x[i]
+            }
+            return str 
         }
 
    } 

@@ -82,19 +82,23 @@
             Random img: <br><img height="400" :src="dynamicIMG[Math.floor(Math.random()*3)]">
             <hr>
             <h1>Пользователь</h1>
-            
+                <p>User_id: {{user.id}}</p> 
+                <p>ФИО: {{user.surname}} {{user.name}} {{user.patronymic}}</p>
+                <p>Заказы: {{userOrder(user.order)}}{{productIf(user.order)}} </p>
             <h1>Товар</h1>
             <div class="list">
                 <div class="product" v-for="product in order">
-                    <p>№ {{product.id}}</p>
-                    <p>Название {{product.title}}</p>
-                    <p>Фирма {{product.firm}}</p>
-                    <p>Цвет {{product.color}}</p>
-                    <p>Наличие {{product.availability}}</p>
-                    <p>Размер {{product.size}}</p>
-                    <p>Цена {{product.price}}</p>
-                    <p> <img :src="product.img" height="300"></p>
-                    <p>Скидка {{product.discount}}</p>
+                    <div v-if="productIf(user.order)">
+                        <p>№ {{product.id}}</p>
+                        <p>Название {{product.title}}</p>
+                        <p>Фирма {{product.firm}}</p>
+                        <p>Цвет {{product.color}}</p>
+                        <p>Наличие {{product.availability}}</p>
+                        <p>Размер {{product.size}}</p>
+                        <p>Цена {{product.price}}</p>
+                        <p> <img :src="product.img" height="300"></p>
+                        <p>Скидка {{product.discount}}</p>  
+                    </div>
                 </div>
             </div>
             
