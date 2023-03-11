@@ -84,11 +84,11 @@
             <h1>Пользователь</h1>
                 <p>User_id: {{user.id}}</p> 
                 <p>ФИО: {{user.surname}} {{user.name}} {{user.patronymic}}</p>
-                <p>Заказы: {{userOrder(user.order)}}{{productIf(user.order)}} </p>
+                <p>Заказы: {{userOrder(user.order)}}</p>
             <h1>Товар</h1>
             <div class="list">
-                <div class="product" v-for="product in order">
-                    <div v-if="productIf(user.order)">
+                <div v-for="product in order" >
+                    <div class="product" v-if="productIf(user.order,product.id)">
                         <p>№ {{product.id}}</p>
                         <p>Название {{product.title}}</p>
                         <p>Фирма {{product.firm}}</p>
@@ -102,7 +102,7 @@
                 </div>
             </div>
             
-            <h1>Оплата</h1>
+            <h1>К оплате - {{productPayment(order,user.order)}} Руб.</h1>
 
         </div>
     </body>

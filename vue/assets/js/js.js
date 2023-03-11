@@ -106,11 +106,25 @@ let app =Vue.createApp({
             }
             return str
         },
-        productIf(x){   
+        productIf(x,y){   
+            str=0;
             for(i=0;i<x.length;i++){
-               x[i]
+               if(x[i]==y){
+                str=1;
+               }
             }
-            return str 
+            return (str==1)? true:false; 
+        },
+        productPayment(x,y){
+            sum=0;
+            for(i=0;i<x.length;i++){
+                for(j=0;j<y.length;j++){
+                    if(x[i].id==y[j]){
+                        sum+=(x[i].price/100)*(100-x[i].discount);
+                    }
+                }
+            }
+            return sum
         }
 
    } 
