@@ -108,7 +108,10 @@
                 Получили: {{number}}
             </p>
             <hr>
-            <button @mouseenter="mouseColor()" ref="textback">Текст</button>
+            <button @mouseover="mouseColor()" @mouseout="mouseBack()" ref="textback">Текст</button>
+            <hr>
+            <button @click="isActive=!isActive">{{isActive?'Скрыть':'Показать'}} информацию</button><br>
+            <img :src="src" width="280" height="230" v-show="isActive">
         </div>
     </body>
 </html>
