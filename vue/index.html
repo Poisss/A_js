@@ -103,7 +103,12 @@
             </div>
             
             <h1>К оплате - {{productPayment(order,user.order)}} Руб.</h1>
-
+            <hr>
+            <p ref="result">
+                Получили: {{number}}
+            </p>
+            <hr>
+            <button @mouseenter="mouseColor()" ref="textback">Текст</button>
         </div>
     </body>
 </html>

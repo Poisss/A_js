@@ -22,7 +22,8 @@ let app =Vue.createApp({
             amount:1,
             order:null,
             dynamicIMG:['https://www.belpressa.ru/media/filer_public_thumbnails/filer_public/58/4f/584f45f5-ea60-4dbb-ac65-4b422679f49e/hamster-690108_960_720.jpg__750x415_q75_crop-True_subsampling-2_upscale.jpg','https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Pearl_Winter_White_Russian_Dwarf_Hamster_-_Front.jpg/1200px-Pearl_Winter_White_Russian_Dwarf_Hamster_-_Front.jpg','https://gomeovet.ru/images/articles/homyak1.jpg'],
-            user:null
+            user:null,
+            number: 1
         }
     },
     beforeCreate(){
@@ -31,8 +32,11 @@ let app =Vue.createApp({
     },
     created(){
         this.order=order;
-        this.user=user;
-
+        this.user=user;  
+    },
+    mounted(){
+        this.$refs.result.style.color="#1dff36";
+        this.$refs.result.innerText=`У нас: ${this.number}`;
     },
    methods:{
         sum(x,y){
@@ -125,7 +129,10 @@ let app =Vue.createApp({
                 }
             }
             return sum
+        },
+        mouseColor(){
+            this.$refs.textback.innerText=`некоторый текст`;
+            this.$refs.textback.style.color="#1dff36";
         }
-
    } 
 }).mount("#app");
