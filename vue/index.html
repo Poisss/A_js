@@ -111,7 +111,58 @@
             <button @mouseover="mouseColor()" @mouseout="mouseBack()" ref="textback">Текст</button>
             <hr>
             <button @click="isActive=!isActive">{{isActive?'Скрыть':'Показать'}} информацию</button><br>
-            <img :src="src" width="280" height="230" v-show="isActive">
+            <img :src="img[0]" width="280" height="230" v-show="isActive" ref="img" @mouseover="mouseImg()" @mouseout="mouseBackImg()">
+            <hr>
+            <div v-show="displayOne">
+                <div ref="displayOne">
+                    <p>
+                        Имя: <br>
+                        <input type="text" v-model="formName">
+                    </p>
+                    <p>
+                        Фамилия: <br>
+                        <input type="text" v-model="formLastName">
+                    </p>
+                    <p>
+                        Email: <br>
+                        <input type="text" v-model="formEmail">
+                    </p>
+                    <p>
+                        Возраст: <br>
+                        <input type="number" min="1" v-model="formAge">
+                    </p>
+                    <button @click="transitionDisplayTwo()">OK</button>
+                </div>
+            </div>
+            <div v-show="displayTwo">
+                <div ref="displayTwo">
+                    <p>
+                        Имя
+                    </p>
+                    <p>
+                        {{formName}}
+                    </p>
+                    <p>
+                        Фамилия
+                    </p>
+                    <p>
+                        {{formLastName}}
+                    </p>
+                    <p>
+                        Email
+                    </p>
+                    <p>
+                        {{formEmail}}
+                    </p>
+                    <p>
+                        Возраст
+                    </p>
+                    <p>
+                        {{formAge}}
+                    </p>
+                </div>
+            </div>
+            
         </div>
     </body>
 </html>

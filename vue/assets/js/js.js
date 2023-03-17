@@ -24,7 +24,14 @@ let app =Vue.createApp({
             dynamicIMG:['https://www.belpressa.ru/media/filer_public_thumbnails/filer_public/58/4f/584f45f5-ea60-4dbb-ac65-4b422679f49e/hamster-690108_960_720.jpg__750x415_q75_crop-True_subsampling-2_upscale.jpg','https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Pearl_Winter_White_Russian_Dwarf_Hamster_-_Front.jpg/1200px-Pearl_Winter_White_Russian_Dwarf_Hamster_-_Front.jpg','https://gomeovet.ru/images/articles/homyak1.jpg'],
             user:null,
             number: 1,
-            isActive: false
+            isActive: false,
+            img:['https://chakiris.club/uploads/posts/2022-11/1669092201_chakiris-club-p-krasivaya-temnaya-kartinka-pinterest-1.jpg','https://gomeovet.ru/images/articles/homyak1.jpg'],
+            displayOne:true,
+            displayTwo:false,
+            formName:'',
+            formLastName:'',
+            formEmail:'',
+            formAge:''
         }
     },
     beforeCreate(){
@@ -38,6 +45,26 @@ let app =Vue.createApp({
     mounted(){
         this.$refs.result.style.color="#1dff36";
         this.$refs.result.innerText=`У нас: ${this.number}`;
+        this.$refs.displayOne.style.cssText=`
+            border: 2px solid black;
+            width: 200px;
+            padding:10px;
+            box-shadow:
+                inset 0 -3em 3em rgba(0,0,0,0.1),
+                0 0  0 2px rgb(255,255,255),
+                0.3em 0.3em 1em rgba(0,0,0,0.3);
+        `;
+        this.$refs.displayTwo.style.cssText=`
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            border: 2px solid black;
+            width: 400px;
+            padding:10px;
+            box-shadow:
+                inset 0 -3em 3em rgba(0,0,0,0.1),
+                0 0  0 2px rgb(255,255,255),
+                0.3em 0.3em 1em rgba(0,0,0,0.3);
+        `;
     },
    methods:{
         sum(x,y){
@@ -138,6 +165,15 @@ let app =Vue.createApp({
         mouseBack(){
             this.$refs.textback.innerText=`Текст`;
             this.$refs.textback.style.color="black";
+        },
+        mouseImg(){
+            this.$refs.img.src=this.img[1];
+        },
+        mouseBackImg(){
+            this.$refs.img.src=this.img[0];
+        },
+        transitionDisplayTwo(){
+            
         }
    } 
 }).mount("#app");
