@@ -131,7 +131,7 @@
                         Возраст: <br>
                         <input type="number" min="1" v-model="formAge">
                     </p>
-                    <button @click="transitionDisplayTwo()">OK</button>
+                    <button @click=" displayOne=!displayOne , displayTwo=!displayTwo">OK</button>
                 </div>
             </div>
             <div v-show="displayTwo">
@@ -162,6 +162,22 @@
                     </p>
                 </div>
             </div>
+            <hr>
+            <div ref="showMenu">
+                <div ref="MenuBlock1" @click="clickBlock1()">
+                    1
+                </div>
+                <div ref="MenuBlock2" @click="clickBlock2()">
+                    2
+                </div>
+                <div ref="MenuBlock3" @click="clickBlock3()">
+                    3
+                </div>
+            </div>
+            <div ref="showImg">
+                <img :src="blockImg" ref="BlockImg">
+            </div>
+            <hr>
             
         </div>
     </body>

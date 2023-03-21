@@ -31,7 +31,8 @@ let app =Vue.createApp({
             formName:'',
             formLastName:'',
             formEmail:'',
-            formAge:''
+            formAge:'',
+            blockImg:''
         }
     },
     beforeCreate(){
@@ -64,6 +65,27 @@ let app =Vue.createApp({
                 inset 0 -3em 3em rgba(0,0,0,0.1),
                 0 0  0 2px rgb(255,255,255),
                 0.3em 0.3em 1em rgba(0,0,0,0.3);
+        `;
+        this.$refs.showMenu.style.cssText=`
+            display:grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-gap:10px;
+            
+        `;
+        this.$refs.MenuBlock1.style.cssText=`
+            border: 2px solid black;
+            text-align:center;
+            padding:10px;
+        `;
+        this.$refs.MenuBlock2.style.cssText=`
+            border: 2px solid black;
+            text-align:center;
+            padding:10px;
+        `;
+        this.$refs.MenuBlock3.style.cssText=`
+            border: 2px solid black;
+            text-align:center;
+            padding:10px;
         `;
     },
    methods:{
@@ -172,8 +194,14 @@ let app =Vue.createApp({
         mouseBackImg(){
             this.$refs.img.src=this.img[0];
         },
-        transitionDisplayTwo(){
-            
+        clickBlock1(){
+            this.blockImg=this.dynamicIMG[0];
+        },
+        clickBlock2(){
+            this.blockImg=this.dynamicIMG[1];
+        },
+        clickBlock3(){
+            this.blockImg=this.dynamicIMG[2];
         }
    } 
 }).mount("#app");
