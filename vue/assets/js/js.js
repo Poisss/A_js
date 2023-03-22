@@ -32,7 +32,14 @@ let app =Vue.createApp({
             formLastName:'',
             formEmail:'',
             formAge:'',
-            blockImg:''
+            blockImg:'',
+            element:'',
+            isEmpty: false,
+            list:['Первый','Второй','Третий'],
+            elementMin:'',
+            elementMax:'',
+            isEmpty2: false,
+            list2:['Первый','Второй','Третий']
         }
     },
     beforeCreate(){
@@ -202,6 +209,25 @@ let app =Vue.createApp({
         },
         clickBlock3(){
             this.blockImg=this.dynamicIMG[2];
+        },
+        addElement(){
+            if(this.element !==''){
+                this.list.push(this.element);
+                this.element='';
+                this.isEmpty=false;
+            }else{
+                this.isEmpty=true;
+            }
+        },
+        addElement2(){
+            if(this.elementMin !==''&& this.elementMax !==''){
+                this.list2.push(this.element2);
+                this.elementMin='';
+                this.elementMax='';
+                this.isEmpty2=false;
+            }else{
+                this.isEmpty2=true;
+            }
         }
    } 
 }).mount("#app");

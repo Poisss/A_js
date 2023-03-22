@@ -178,7 +178,32 @@
                 <img :src="blockImg" ref="BlockImg">
             </div>
             <hr>
-            
+            <p>Добавить элемент</p>
+            <form @submit.prevent="addElement">
+                <input type="text" v-model="element">
+                <button>Добавить</button>
+                <br>
+                <div v-if="isEmpty">Введите данные...</div>
+            </form>
+            <ul>
+                <li v-for="elements in list"
+                 @mouseenter="$event.target.style.color='tomato'" 
+                 @mouseleave="$event.target.style.color='black'">{{elements}}</li>
+            </ul>
+            <hr>
+            <p>Добавить элемент</p>
+            <form @submit.prevent="addElement2">
+                Min<input type="number" v-model="elementMin">
+                Max<input type="number" v-model="elementMax">
+                <button>Добавить</button>
+                <br>
+                <div v-if="isEmpty2">Введите данные...</div>
+            </form>
+            <ul>
+                <li v-for="elements in list2"
+                 @mouseenter="$event.target.style.color='tomato'" 
+                 @mouseleave="$event.target.style.color='black'">{{elements}}</li>
+            </ul>
         </div>
     </body>
 </html>
