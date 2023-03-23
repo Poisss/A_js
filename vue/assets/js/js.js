@@ -39,7 +39,12 @@ let app =Vue.createApp({
             elementMin:'',
             elementMax:'',
             isEmpty2: false,
-            list2:['Первый','Второй','Третий']
+            list2:['Первый','Второй','Третий'],
+            listImg:[
+                        {title:1,path:"https://chakiris.club/uploads/posts/2022-11/1669092201_chakiris-club-p-krasivaya-temnaya-kartinka-pinterest-1.jpg"},
+                        {title:2,path:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Pearl_Winter_White_Russian_Dwarf_Hamster_-_Front.jpg/1200px-Pearl_Winter_White_Russian_Dwarf_Hamster_-_Front.jpg"},
+                        {title:3,path:"https://gomeovet.ru/images/articles/homyak1.jpg"}
+                    ]
         }
     },
     beforeCreate(){
@@ -78,21 +83,6 @@ let app =Vue.createApp({
             grid-template-columns: 1fr 1fr 1fr;
             grid-gap:10px;
             
-        `;
-        this.$refs.MenuBlock1.style.cssText=`
-            border: 2px solid black;
-            text-align:center;
-            padding:10px;
-        `;
-        this.$refs.MenuBlock2.style.cssText=`
-            border: 2px solid black;
-            text-align:center;
-            padding:10px;
-        `;
-        this.$refs.MenuBlock3.style.cssText=`
-            border: 2px solid black;
-            text-align:center;
-            padding:10px;
         `;
     },
    methods:{
@@ -201,16 +191,11 @@ let app =Vue.createApp({
         mouseBackImg(){
             this.$refs.img.src=this.img[0];
         },
-        clickBlock1(){
-            this.blockImg=this.dynamicIMG[0];
-        },
-        clickBlock2(){
-            this.blockImg=this.dynamicIMG[1];
-        },
-        clickBlock3(){
-            this.blockImg=this.dynamicIMG[2];
+        listImg1(x){
+            this.blockImg=x;
         },
         addElement(){
+            alert(1);
             if(this.element !==''){
                 this.list.push(this.element);
                 this.element='';
@@ -221,9 +206,8 @@ let app =Vue.createApp({
         },
         addElement2(){
             if(this.elementMin !==''&& this.elementMax !==''){
-                this.list2.push(this.element2);
-                this.elementMin='';
-                this.elementMax='';
+                x=Math.floor(Math.random()*(this.elementMax-this.elementMin)+this.elementMin);
+                this.list2.push(x);
                 this.isEmpty2=false;
             }else{
                 this.isEmpty2=true;

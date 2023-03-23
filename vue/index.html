@@ -164,14 +164,10 @@
             </div>
             <hr>
             <div ref="showMenu">
-                <div ref="MenuBlock1" @click="clickBlock1()">
-                    1
-                </div>
-                <div ref="MenuBlock2" @click="clickBlock2()">
-                    2
-                </div>
-                <div ref="MenuBlock3" @click="clickBlock3()">
-                    3
+                <div  v-for="(img,index) in listImg" :key="index">
+                    <button @click="listImg1(img.path)">
+                        {{img.title}}
+                    </button>
                 </div>
             </div>
             <div ref="showImg">
@@ -204,6 +200,7 @@
                  @mouseenter="$event.target.style.color='tomato'" 
                  @mouseleave="$event.target.style.color='black'">{{elements}}</li>
             </ul>
+            <hr>
         </div>
     </body>
 </html>
