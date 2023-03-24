@@ -44,7 +44,21 @@ let app =Vue.createApp({
                         {title:1,path:"https://chakiris.club/uploads/posts/2022-11/1669092201_chakiris-club-p-krasivaya-temnaya-kartinka-pinterest-1.jpg"},
                         {title:2,path:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Pearl_Winter_White_Russian_Dwarf_Hamster_-_Front.jpg/1200px-Pearl_Winter_White_Russian_Dwarf_Hamster_-_Front.jpg"},
                         {title:3,path:"https://gomeovet.ru/images/articles/homyak1.jpg"}
-                    ]
+                    ],
+            listColor1:[
+                {color1:"red",img:"https://chakiris.club/uploads/posts/2022-11/1669092201_chakiris-club-p-krasivaya-temnaya-kartinka-pinterest-1.jpg"},
+                {color1:"green",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Pearl_Winter_White_Russian_Dwarf_Hamster_-_Front.jpg/1200px-Pearl_Winter_White_Russian_Dwarf_Hamster_-_Front.jpg"},
+                {color1:"orange",img:"https://gomeovet.ru/images/articles/homyak1.jpg"}
+            ],
+            blockImg21:'',
+            listCar:[
+                {name:'Трава',img:'https://chakiris.club/uploads/posts/2022-11/1669092201_chakiris-club-p-krasivaya-temnaya-kartinka-pinterest-1.jpg',description:'черная трава'},
+                {name:'Хомяк 1',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Pearl_Winter_White_Russian_Dwarf_Hamster_-_Front.jpg/1200px-Pearl_Winter_White_Russian_Dwarf_Hamster_-_Front.jpg',description:'Хомяк отдыхает'},
+                {name:'Хомяк 2',img:'https://gomeovet.ru/images/articles/homyak1.jpg',description:'Хомяк кушает'}
+            ],
+            listCarName: '',
+            listCarImg:'',
+            listCarDescription:''               
         }
     },
     beforeCreate(){
@@ -54,6 +68,9 @@ let app =Vue.createApp({
     created(){
         this.order=order;
         this.user=user;  
+        this.listCarName=this.listCar[0].name;
+        this.listCarImg=this.listCar[0].img;
+        this.listCarDescription=this.listCar[0].description;
     },
     mounted(){
         this.$refs.result.style.color="#1dff36";
@@ -79,6 +96,12 @@ let app =Vue.createApp({
                 0.3em 0.3em 1em rgba(0,0,0,0.3);
         `;
         this.$refs.showMenu.style.cssText=`
+            display:grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-gap:10px;
+            
+        `;
+        this.$refs.showMenu1.style.cssText=`
             display:grid;
             grid-template-columns: 1fr 1fr 1fr;
             grid-gap:10px;
@@ -212,6 +235,10 @@ let app =Vue.createApp({
             }else{
                 this.isEmpty2=true;
             }
+        },
+        dnmImg1(x,y){
+            this.blockImg21=y;
+            this.$refs.fImg.style.border="5px solid "+x;
         }
    } 
 }).mount("#app");

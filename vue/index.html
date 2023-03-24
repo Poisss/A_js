@@ -164,7 +164,7 @@
             </div>
             <hr>
             <div ref="showMenu">
-                <div  v-for="(img,index) in listImg" :key="index">
+                <div  v-for="img in listImg">
                     <button @click="listImg1(img.path)">
                         {{img.title}}
                     </button>
@@ -201,6 +201,27 @@
                  @mouseleave="$event.target.style.color='black'">{{elements}}</li>
             </ul>
             <hr>
+            <div ref="showMenu1">
+                <div v-for="(color,index) in listColor1" :key="index">
+                    <div @mouseenter="dnmImg1(color.color1,color.img)" :style="{background:color.color1}">
+                        img {{index+1}}
+                    </div>
+                </div>
+            </div>
+            <div ref="fImg">
+                <img :src="blockImg21" width="1876">
+            </div>
+            <hr>
+            <select name="" id="">
+                <option v-for="element in listCar">
+                    {{element.name}}
+                </option>
+            </select>
+            <div>
+                <h1>{{listCarName}}</h1>
+                <p>Описание: {{listCarDescription}}</p>
+                <img :src="listCarImg" alt="">
+            </div>
         </div>
     </body>
 </html>
