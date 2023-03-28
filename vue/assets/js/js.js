@@ -218,12 +218,14 @@ let app =Vue.createApp({
             this.blockImg=x;
         },
         addElement(){
-            alert(1);
+            
             if(this.element !==''){
                 this.list.push(this.element);
                 this.element='';
                 this.isEmpty=false;
+                this.$refs.www.style.border="1px solid black";
             }else{
+                this.$refs.www.style.border="4px solid red";
                 this.isEmpty=true;
             }
         },
@@ -232,13 +234,20 @@ let app =Vue.createApp({
                 x=Math.floor(Math.random()*(this.elementMax-this.elementMin)+this.elementMin);
                 this.list2.push(x);
                 this.isEmpty2=false;
+                
             }else{
                 this.isEmpty2=true;
+                
             }
         },
         dnmImg1(x,y){
             this.blockImg21=y;
             this.$refs.fImg.style.border="5px solid "+x;
+        },
+        dnmImg211(x,y,z){
+            this.listCarName=x;
+            this.listCarDescription=y;
+            this.listCarImg=z;
         }
    } 
 }).mount("#app");

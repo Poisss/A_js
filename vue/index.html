@@ -176,7 +176,7 @@
             <hr>
             <p>Добавить элемент</p>
             <form @submit.prevent="addElement">
-                <input type="text" v-model="element">
+                <input type="text" v-model="element" ref="www">
                 <button>Добавить</button>
                 <br>
                 <div v-if="isEmpty">Введите данные...</div>
@@ -213,7 +213,7 @@
             </div>
             <hr>
             <select name="" id="">
-                <option v-for="element in listCar">
+                <option v-for="element in listCar" @click="dnmImg211(element.name,element.description,element.img)">
                     {{element.name}}
                 </option>
             </select>
